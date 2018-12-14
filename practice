@@ -1,0 +1,61 @@
+package pl.naukajavy;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Prime {
+    public static void main(String[] args) {
+        int z;
+        int c;
+        Scanner odczyt = new Scanner(System.in);
+        System.out.println("Podaj pierwszą liczbę: ");
+
+        z = odczyt.nextInt();
+
+        System.out.println("Podaj drugą liczbę: ");
+
+        c = odczyt.nextInt();
+
+        ArrayList<Integer> arl = new ArrayList<Integer>();
+
+        if (z > c || z==c) {
+            System.out.println("Liczba pierwsza musi być mniejsza od drugiej, liczby nie moga byc rowne");
+        }
+
+
+        while (z <= c) {
+            if (z == 0 || c == 0) {
+                System.out.println("Podaj liczbe większą od zeran");
+                break;
+            }
+
+            arl.add(z);
+
+            z++;
+
+        }
+        System.out.println();
+        //System.out.println(arl);
+
+        for (int temp : arl) {
+
+            if (isPrime(temp) == new Boolean(true)) {
+                System.out.println(temp + " ta liczba jest pierwsza");
+            }
+
+        }
+    }
+
+    static boolean isPrime(int n) {
+
+
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0)
+                return false;
+        }
+
+        return true;
+
+    }
+}
+
